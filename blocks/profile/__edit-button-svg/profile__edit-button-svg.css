@@ -1,0 +1,7 @@
+@media screen and (max-width:575px){
+    .profile__edit-button-svg{
+        position: absolute;
+        top: 3px;
+        right: 3px;
+    }
+}

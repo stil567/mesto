@@ -1,0 +1,17 @@
+.elements__rectangle{
+    max-width: 246px;
+    padding: 22px 15px 25px 21px;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+@media screen and (max-width:320px){
+    
+    .elements__rectangle{
+        max-width: 320px;
+    }
+    
+}

@@ -1,0 +1,24 @@
+.elements__element{
+    background-color: #fff;
+    border-radius: 10px;
+    max-width: 282px;
+    max-height: 361px;
+}
+
+@media screen and (max-width:450px){
+    
+    .elements__element{
+        margin: auto;
+    }
+    
+}
+
+@media screen and (max-width:320px){
+    
+    .elements__element{
+        margin: 0;
+        max-width: 320px;
+        max-height: 399px;
+    }
+    
+}

@@ -1,0 +1,17 @@
+@import url(__content/elements__content.css);
+@import url(__element/elements__element.css);
+@import url(__image/elements__image.css);
+@import url(__rectangle/elements__rectangle.css);
+@import url(__title/elements__title.css);
+@import url(__button-like/elements__button-like.css);
+
+.elements{
+    margin: 36px 0 48px;
+}
+
+@media screen and (max-width:575px){
+    .elements{
+    margin: 50px 0 66px;
+}
+
+}
