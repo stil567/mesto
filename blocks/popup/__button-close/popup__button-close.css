@@ -2,10 +2,29 @@
     position: absolute;
     top: -50px;
     right: -50px;
+    z-index: 1;
     transition: .2s linear;
+    
+    background-image: url("../../../images/popap/close_icon.svg") ;
+    background-size: cover;
+    max-height: 40px;
+    height: 100%;
+    max-width: 40px;
+    width: 100%;
 }
 
 .popup__button-close:hover{
     opacity: .6;
     cursor: pointer;
+}
+
+@media screen and (max-width:575px){
+    .popup__button-close{
+        max-height: 20px;
+        height: 100%;
+        max-width: 20px;
+        width: 100%;
+        top: -40px;
+        right: 0px;
+    }
 }

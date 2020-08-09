@@ -1,6 +1,12 @@
 .profile__info{
     max-width: 336px;
     max-height: 77px;
-    
-    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 20px;
+}
+
+@media screen and (max-width:575px){
+    .profile__info{
+        grid-template-columns: 200px 20px;
+    }
 }

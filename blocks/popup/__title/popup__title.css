@@ -2,5 +2,12 @@
     color:#000;
     font-weight: 900;
     font-size: 24px;
-    margin: 34px 0 54px;
+    margin: 34px 0 54px 36px;
+}
+
+@media screen and (max-width:575px){
+    .popup__title{
+        font-size: 17px;
+        margin: 25px 36px 30px 36px;
+    }
 }

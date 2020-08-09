@@ -1,5 +1,4 @@
 .header__logo{
-    opacity: 0.2;
     max-width: 142.01px;
     max-height: 33.4px;
     margin-bottom: 40px;
@@ -14,7 +13,8 @@
 
 @media screen and (max-width:575px){
     .header__logo{
-        opacity: 1;
         margin-bottom: 30px;
+        width: 102px;
+        height: 24px;
     }
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -24,17 +24,13 @@
         
                 <div class="profile__info">
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
+                    <button class="profile__edit-button" type="button"></button>
                     <p class="profile__subtitle">Исследователь океана</p>
                     
-                    <button class="profile__edit-button">
-                       
-                        <svg class="profile__edit-button-svg" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 1.32827L2.60377 8.7666L1.28302 7.41936L8.66038 0L10 1.32827ZM0 10L1.96226 9.41177L0.584906 8.08349L0 10Z" fill="white"/></svg>
-                    </button>
+                    
                 </div>                
               </div>                 
-                <button class="profile__add-button">
-                    <svg class="profile__add-button-svg" width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 9.77778H12.2222V0H9.77778V9.77778H0V12.2222H9.77778V22H12.2222V12.2222H22V9.77778Z" fill="white"/></svg>
-                </button>          
+                <button class="profile__add-button" type="button"></button>          
         </section><!--/profile-->
         
         <!--/elements-->
@@ -43,46 +39,46 @@
                
                 <div class="elements__content">
                    
-                    <div class="elements__element">
-                        <img src="images/elements/img/1.jpg" alt="Карачаевск" class="elements__image">
-                        <div class="elements__rectangle">
-                            <h2 class="elements__title">Карачаевск</h2>
-                            <button class="elements__button-like"></button>
+                    <div class="element">
+                        <img src="images/elements/img/1.jpg" alt="Карачаевск" class="element__image">
+                        <div class="element__rectangle">
+                            <h2 class="element__title">Карачаевск</h2>
+                            <button class="element__button-like" type="button"></button>
                         </div>
                     </div>
-                    <div class="elements__element">
-                        <img src="images/elements/img/2.jpg" alt="Гора Эльбрус" class="elements__image">
-                        <div class="elements__rectangle">
-                            <h2 class="elements__title">Гора Эльбрус</h2>
-                            <button class="elements__button-like"></button>
+                    <div class="element">
+                        <img src="images/elements/img/2.jpg" alt="Гора Эльбрус" class="element__image">
+                        <div class="element__rectangle">
+                            <h2 class="element__title">Гора Эльбрус</h2>
+                            <button class="element__button-like" type="button"></button>
                         </div>
                     </div>
-                    <div class="elements__element">
-                        <img src="images/elements/img/3.jpg" alt="Домбай" class="elements__image">
-                        <div class="elements__rectangle">
-                            <h2 class="elements__title">Домбай</h2>
-                            <button class="elements__button-like"></button>
+                    <div class="element">
+                        <img src="images/elements/img/3.jpg" alt="Домбай" class="element__image">
+                        <div class="element__rectangle">
+                            <h2 class="element__title">Домбай</h2>
+                            <button class="element__button-like" type="button"></button>
                         </div>
                     </div>
-                    <div class="elements__element">
-                        <img src="images/elements/img/2.jpg" alt="Гора Эльбрус" class="elements__image">
-                        <div class="elements__rectangle">
-                            <h2 class="elements__title">Гора Эльбрус</h2>
-                            <button class="elements__button-like"></button>
+                    <div class="element">
+                        <img src="images/elements/img/2.jpg" alt="Гора Эльбрус" class="element__image">
+                        <div class="element__rectangle">
+                            <h2 class="element__title">Гора Эльбрус</h2>
+                            <button class="element__button-like" type="button"></button>
                         </div>
                     </div>
-                    <div class="elements__element">
-                        <img src="images/elements/img/3.jpg" alt="Домбай" class="elements__image">
-                        <div class="elements__rectangle">
-                            <h2 class="elements__title">Домбай</h2>
-                            <button class="elements__button-like"></button>
+                    <div class="element">
+                        <img src="images/elements/img/3.jpg" alt="Домбай" class="element__image">
+                        <div class="element__rectangle">
+                            <h2 class="element__title">Домбай</h2>
+                            <button class="element__button-like" type="button"></button>
                         </div>
                     </div>
-                    <div class="elements__element">
-                        <img src="images/elements/img/1.jpg" alt="Карачаево-Черкесская Республика" class="elements__image">
-                        <div class="elements__rectangle">
-                            <h2 class="elements__title">Карачаево-Черкесская Республика</h2>
-                            <button class="elements__button-like"></button>
+                    <div class="element">
+                        <img src="images/elements/img/1.jpg" alt="Карачаево-Черкесская Республика" class="element__image">
+                        <div class="element__rectangle">
+                            <h2 class="element__title">Карачаево-Черкесская Республика</h2>
+                            <button class="element__button-like" type="button"></button>
                         </div>
                     </div>
                     
@@ -105,18 +101,18 @@
     
         <div class="popup__container">  
         
-            <form class="popup__form" action="">
+            <form class="popup__form" action="url" name="popup-profile">
 
                <h2 class="popup__title">Редактировать профиль</h2>
                
                 <fieldset class="popup__fields">
 
-                    <label for="">
-                        <input class="popup__input popup__input_name" type="text" name="name" value="Жак-Ив Кусто">
+                    <label for="title">
+                        <input class="popup__input popup__input_name" type="text" name="name" id="title">
                     </label>
 
-                    <label for="">
-                        <input class="popup__input popup__input_job" type="text" name="about" value="Исследователь океана" >
+                    <label for="subtitle">
+                        <input class="popup__input popup__input_job" type="text" name="about" id="subtitle">
                     </label>
 
                     <button class="popup__button" type="submit">Сохранить</button>
@@ -125,9 +121,7 @@
 
             </form>
 
-            <buttom class="popup__button-close">
-                <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44.7661 41.5683L31.9759 28.778L44.7661 15.9878L41.5686 12.7902L28.7783 25.5805L15.9881 12.7902L12.7905 15.9878L25.5808 28.778L12.7905 41.5683L15.9881 44.7658L28.7783 31.9756L41.5686 44.7658L44.7661 41.5683Z" fill="white"/></svg>
-            </buttom>
+            <buttom class="popup__button-close" type="button"></buttom>
         
         </div>  
         

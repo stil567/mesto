@@ -10,8 +10,14 @@ let profileSubtitle = document.querySelector('.profile__subtitle');
 
 let popupButton = document.querySelector('.popup__button');
 
+let formElement = document.querySelector('.popup__container');
+
+
 /*открытие окна редактирования*/
 function aditOpened(){
+    
+    nameInput.value = profileTitle.textContent;
+    jobInput.value = profileSubtitle.textContent;
     
     popup.classList.add('popup_opened');
     
@@ -31,28 +37,16 @@ buttonClose.addEventListener('click', editClose);
 
 /*редактирование профиля*/
 
-let formElement = document.querySelector('.popup__container');
-
-
 function formSubmitHandler (evt) {
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы
-     
-     let name = nameInput.value;
-     let job = jobInput.value;
-     
-     profileTitle.textContent = (name);
-     profileSubtitle.textContent = (job);
+ 
+     profileTitle.textContent = (nameInput.value);
+     profileSubtitle.textContent = (jobInput.value);
 }
 
 formElement.addEventListener('submit', formSubmitHandler);
+formElement.addEventListener('submit', editClose);
 
-
-function closePup() {
-    
-    popup.classList.remove('popup_opened');
-}
-
-popupButton.addEventListener('click', closePup);
 
 
 

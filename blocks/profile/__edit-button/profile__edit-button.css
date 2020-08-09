@@ -4,10 +4,9 @@
     border: 1px solid #fff;
     background-color: transparent;
     transition: .2s linear;
-    
-    position: absolute;
-    top:32px;
-    right: -45px;
+      
+    background-image: url(../../../images/profile/Edit%20Button.svg);
+    margin: 32px 0 0 17px;
 }
 
 .profile__edit-button:hover{
@@ -17,10 +16,8 @@
 
 @media screen and (max-width:575px){
     .profile__edit-button{
-        width: 18px;
-        height: 18px;
-        top:25px;
-        right: -30px;
+        margin: 25px 0 0 0;
+        
     }
 }
 

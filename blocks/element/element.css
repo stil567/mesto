@@ -1,4 +1,9 @@
-.elements__element{
+@import url(__image/element__image.css);
+@import url(__rectangle/element__rectangle.css);
+@import url(__title/element__title.css);
+@import url(__button-like/element__button-like.css);
+
+.element{
     background-color: #fff;
     border-radius: 10px;
     max-width: 282px;
@@ -7,7 +12,7 @@
 
 @media screen and (max-width:450px){
     
-    .elements__element{
+    .element{
         margin: auto;
     }
     
@@ -15,7 +20,7 @@
 
 @media screen and (max-width:320px){
     
-    .elements__element{
+    .element{
         margin: 0;
         max-width: 320px;
         max-height: 399px;
