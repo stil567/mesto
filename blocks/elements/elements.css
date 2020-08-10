@@ -2,7 +2,10 @@
 
 
 .elements{
-     margin: 50px 0 66px;
+    margin: 50px auto 66px;
+    max-width: 920px;
+    width: 100%;
+    padding: 0 19px;
 }
 
 @media screen and (max-width:575px){

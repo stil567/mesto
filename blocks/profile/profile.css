@@ -11,6 +11,11 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    
+    max-width: 920px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 19px;
 }
 
 @media screen and (max-width:650px){
