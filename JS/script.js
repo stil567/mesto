@@ -42,10 +42,11 @@ function formSubmitHandler (evt) {
  
      profileTitle.textContent = (nameInput.value);
      profileSubtitle.textContent = (jobInput.value);
+    
+     editClose();
 }
 
 formElement.addEventListener('submit', formSubmitHandler);
-formElement.addEventListener('submit', editClose);
 
 
 

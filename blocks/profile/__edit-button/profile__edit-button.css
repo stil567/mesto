@@ -5,7 +5,7 @@
     background-color: transparent;
     transition: .2s linear;
       
-    background-image: url(../../../images/profile/Edit%20Button.svg);
+    background: url(../../../images/profile/Edit%20Button.svg) center no-repeat;
     margin: 32px 0 0 17px;
 }
 
