@@ -5,6 +5,7 @@
 @import url(__input/popup__input.css);
 @import url(__button/popup__button.css);
 @import url(__button-close/popup__button-close.css);
+@import url(__popup__input-add/popup__input-add.css);
 
 .popup{
     background-color: rgba(0, 0, 0, .7);
@@ -18,5 +19,7 @@
     align-items: center;
     justify-content: center;
     
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.2s, opacity 0.2s linear;
 }

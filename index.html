@@ -33,52 +33,9 @@
         <!--/elements-->
         <section class="elements">
                 
-                <div class="elements__content">
-                   
-                    <div class="element">
-                        <img src="images/elements/img/1.jpg" alt="Карачаевск" class="element__image">
-                        <div class="element__rectangle">
-                            <h2 class="element__title">Карачаевск</h2>
-                            <button class="element__button-like" type="button"></button>
-                        </div>
-                    </div>
-                    <div class="element">
-                        <img src="images/elements/img/2.jpg" alt="Гора Эльбрус" class="element__image">
-                        <div class="element__rectangle">
-                            <h2 class="element__title">Гора Эльбрус</h2>
-                            <button class="element__button-like" type="button"></button>
-                        </div>
-                    </div>
-                    <div class="element">
-                        <img src="images/elements/img/3.jpg" alt="Домбай" class="element__image">
-                        <div class="element__rectangle">
-                            <h2 class="element__title">Домбай</h2>
-                            <button class="element__button-like" type="button"></button>
-                        </div>
-                    </div>
-                    <div class="element">
-                        <img src="images/elements/img/2.jpg" alt="Гора Эльбрус" class="element__image">
-                        <div class="element__rectangle">
-                            <h2 class="element__title">Гора Эльбрус</h2>
-                            <button class="element__button-like" type="button"></button>
-                        </div>
-                    </div>
-                    <div class="element">
-                        <img src="images/elements/img/3.jpg" alt="Домбай" class="element__image">
-                        <div class="element__rectangle">
-                            <h2 class="element__title">Домбай</h2>
-                            <button class="element__button-like" type="button"></button>
-                        </div>
-                    </div>
-                    <div class="element">
-                        <img src="images/elements/img/1.jpg" alt="Карачаево-Черкесская Республика" class="element__image">
-                        <div class="element__rectangle">
-                            <h2 class="element__title">Карачаево-Черкесская Республика</h2>
-                            <button class="element__button-like" type="button"></button>
-                        </div>
-                    </div>
-                    
-                </div><!--/elements__content-->
+                <ul class="elements__content">
+
+                </ul><!--/elements__content-->
                 
         </section><!--/elements-->
         
@@ -120,7 +77,63 @@
         
     </section><!--/popup-->
     
+    <!--popup-add-->
+    <section class="popup popup-add">
+        
+        <div class="popup__container popup__container_add">
+            
+            <form class="popup__form" action="url" name="popup-element">
+
+               <h2 class="popup__title">Новое место</h2>
+               
+                <fieldset class="popup__fields">
+
+                    <label for="title">
+                        <input class="popup__input popup__input_add-name" type="text" name="nameadd" id="nameadd" placeholder="Название">
+                    </label>
+
+                    <label for="subtitle">
+                        <input class="popup__input popup__input_add-link" type="text" name="link" id="linkadd" placeholder="Ссылка на картинку">
+                    </label>
+
+                    <button class="popup__button" type="submit">Создать</button>
+                    
+                    <button class="popup__button-close popup__button-close_add" type="button"></button>
+
+                </fieldset>
+
+            </form>
+
+            
+        </div>
+        
+    </section><!--/popup-add-->
     
+    <template id="element-template">
+        <li class="element">
+            <img src="" alt="" class="element__image">
+
+            <button class="element__button-trash" type="button"></button>
+            <div class="element__rectangle">
+                <h2 class="element__title"></h2>
+                <button class="element__button-like" type="button"></button>
+            </div>
+        </li>
+    </template><!--/element-template-->
+    
+
+        <div class="popup-img">
+            <figure class="popup-img__container">
+                <img src="" alt="" class="popup-img__photo">
+                <figcaption class="popup-img__title"></figcaption>
+
+                <button class="popup__button-close popup__button-close_image" type="button"></button>
+            </figure>
+        </div>
+
+
+   
+   
     <script src="JS/script.js"></script>
 </body>
 </html>

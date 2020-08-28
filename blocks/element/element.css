@@ -2,12 +2,17 @@
 @import url(__rectangle/element__rectangle.css);
 @import url(__title/element__title.css);
 @import url(__button-like/element__button-like.css);
+@import url(__button-trash/element__button-trash.css);
 
 .element{
     background-color: #fff;
     border-radius: 10px;
     max-width: 282px;
-    max-height: 361px;
+    height: 361px;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
 
 @media screen and (max-width:450px){
@@ -23,7 +28,7 @@
     .element{
         margin: 0;
         max-width: 320px;
-        max-height: 399px;
+        height: 399px;
     }
     
 }

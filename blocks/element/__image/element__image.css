@@ -1,7 +1,13 @@
 .element__image{
     max-width: 282px;
     width: 100%;
+    max-height: 282px;
+    height: 100%;
     border-radius: 10px 10px 0px 0px;
+}
+
+.element__image:hover{
+    cursor: pointer;
 }
 
 @media screen and (max-width:320px){
@@ -9,6 +15,9 @@
     .element__image{
         max-width: 320px;
         width: 100%;
+        max-height: 320px;
+        height: 100%;
     }
     
 }
+

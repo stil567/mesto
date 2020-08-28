@@ -1,0 +1,16 @@
+.popup__input-add{
+    color: #C4C4C4;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+   color: #C4C4C4;;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: #C4C4C4;;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: #C4C4C4;;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color: #C4C4C4;;
+}
