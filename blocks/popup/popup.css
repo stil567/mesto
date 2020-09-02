@@ -6,6 +6,7 @@
 @import url(__button/popup__button.css);
 @import url(__button-close/popup__button-close.css);
 @import url(__popup__input-add/popup__input-add.css);
+@import url("__error/popup__error_visible.css");
 
 .popup{
     background-color: rgba(0, 0, 0, .7);
