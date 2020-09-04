@@ -10,7 +10,3 @@
 .popup__error_visible{
     display: inline;
 }
-
-.popup__label{
-    position: relative;
-}

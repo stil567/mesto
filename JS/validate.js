@@ -7,7 +7,7 @@ const validateObject = {
 };
 
 function enableValidation({formSelector,inputSelector,buttonElement, inactiveButtonClass, inputErrorClass,errorClass}) {
-//function enableValidation(rest) {  
+  
     /*добавления классов-ошибок*/
     const showInputError = (formSelector, inputSelector, errorMessage) => {
       const errorElement = formSelector.querySelector(`#${inputSelector.id}-error`);
@@ -34,17 +34,16 @@ function enableValidation({formSelector,inputSelector,buttonElement, inactiveBut
     const setEventListeners = (formSelector) => {
       const inputList = Array.from(formSelector.querySelectorAll(inputSelector));
         const buttonElement = formSelector.querySelector('.popup__button');
-         toggleButtonState(inputList, buttonElement);
-
+           toggleButtonState(inputList, buttonElement);   
         inputList.forEach((inputSelector) => {
         inputSelector.addEventListener('input', function () {
           checkInputValidity(formSelector, inputSelector);
-            toggleButtonState(inputList, buttonElement);
+          toggleButtonState(inputList, buttonElement);
         });
       });
     };
     /*массив всех form*/
-    function enableValidation(){
+    function enableValidationForm(){
       const formList = Array.from(document.querySelectorAll('.popup__form'));
 
         formList.forEach((formSelector) => {
@@ -60,7 +59,7 @@ function enableValidation({formSelector,inputSelector,buttonElement, inactiveBut
         });
     });
     }
-    enableValidation();
+    enableValidationForm();
 
     /*валидация всех полей*/
     function hasInvalidInput(inputList){
@@ -78,7 +77,6 @@ function enableValidation({formSelector,inputSelector,buttonElement, inactiveBut
       buttonElement.removeAttribute('disabled');
         }
     }
-
 }
 
 enableValidation(validateObject);
