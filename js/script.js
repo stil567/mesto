@@ -1,31 +1,25 @@
 const cards = [
     {
-        id: 1,
         name: 'Архыз',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
     },
     {
-        id: 2,
         name: 'Челябинская область',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
     },
     {
-        id: 3,
         name: 'Иваново',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
     },
     {
-        id: 4,
         name: 'Камчатка',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
     },
     {
-        id: 5,
         name: 'Холмогорский район',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
     },
     {
-        id: 6,
         name: 'Байкал',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
@@ -49,36 +43,30 @@ const jobInput = document.querySelector('.popup__input_job');
 const inputAddName = document.querySelector('.popup__input_add-name');
 const inputAddLink = document.querySelector('.popup__input_add-link');
 const formElement = document.querySelector('.popup__container');
-const formCard = document.querySelector('.popup__container-add');
 const formAdd = document.querySelector('.popup__container_add');
-const popupPhoto = document.querySelector('.popup-img__photo');
-const popupTitle = document.querySelector('.popup-img__title');
+const photoElementImagePopup = document.querySelector('.popup-img__photo');
+const imagePopupTitle = document.querySelector('.popup-img__title');
 const popupForm = document.querySelector('.popup__form');
-const popupInput = document.querySelector('.popup__input');
-const popupSpan = document.querySelector('.popup__error');
 const elementContent = document.querySelector('.elements__content');
+const form = document.querySelector('#form');
 
 /*функция открытия и закрытия*/
-function togglePopup(opClose){
-    opClose.classList.toggle('popup_opened');
+function togglePopup(popup){
+    popup.classList.toggle('popup_opened');
 }
 
 /*закрытие при клике escape*/
-const closeEscPopup = (opClose) => (evt) => {
-  if (evt.key === "Escape" && opClose.classList.contains('popup_opened')) {
-    togglePopup(opClose);
-    resetError(popupEdit);
-    resetError(popupAdd);
+const closeEscPopup = (popup) => (evt) => {
+  if (evt.key === "Escape" && popup.classList.contains('popup_opened')) {
+    togglePopup(popup);
   }
 };
 /*закрытие при клике вне области*/ 
-function closeOverlayPopup (opClose) {
-  opClose.addEventListener('click', function (evt) {
+function closeOverlayPopup (popup) {
+  popup.addEventListener('click', function (evt) {
     if (evt.target.classList.contains('popup_opened'))
-      togglePopup(opClose);
-      resetError(popupEdit);
-      resetError(popupAdd);
-  });
+      togglePopup(popup);
+       });
 };
 
 /*открытие окна редактирования*/
@@ -87,25 +75,39 @@ function openEditProfilePopup(){
     jobInput.value = profileSubtitle.textContent;
 
     togglePopup(popupEdit);
-    disableButton(popupEdit);
     body.addEventListener('keydown', closeEscPopup(popupEdit));
     closeOverlayPopup(popupEdit);
-}
-editProfileButton.addEventListener('click', openEditProfilePopup);
-
-/*открытие окна добавления картинку*/
-function opencreateCardPopup(){
-    inputAddName.value = "";
-    inputAddLink.value = "";
     
+    resetError(popupEdit, {
+    formSelector:'.popup__form',
+    inputSelector:'.popup__input',
+    submitButtonSelector:'.popup__button',
+    inactiveButtonClass:'popup__button_disabled',
+    inputErrorClass:'popup__input_type_error',
+    errorClass:'popup__error_visible',
+  });
+}
+
+/*открытие окна добавления картинки*/
+function openCreateCardPopup(){
+    form.reset();
     togglePopup(popupAdd);
     body.addEventListener('keydown', closeEscPopup(popupAdd));
     closeOverlayPopup(popupAdd);
+    
+  resetError(popupAdd, {
+    formSelector:'.popup__form',
+    inputSelector:'.popup__input',
+    submitButtonSelector:'.popup__button',
+    inactiveButtonClass:'popup__button_disabled',
+    inputErrorClass:'popup__input_type_error',
+    errorClass:'popup__error_visible',
+  });
 }
-createCardButton.addEventListener('click', opencreateCardPopup);
+
 
 /*редактирование профиля*/
-function formSubmitHandler(evt){
+function editProfileFormSubmitHandler(evt){
     evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы
 
      profileTitle.textContent = (nameInput.value);
@@ -113,20 +115,17 @@ function formSubmitHandler(evt){
 
      togglePopup(popupEdit);
 }
-formElement.addEventListener('submit', formSubmitHandler);
-
 
 /*добавление карточки на страницу*/
-function createCard(name, link, id){
+function createCard(name, link){
     const elementTemplate = document.querySelector('#element-template').content;
-    
     const card = elementTemplate.cloneNode(true);
+    const cardElementImg = card.querySelector('.element__image');
     
     card.querySelector('.element__title').textContent = (name);
-    card.querySelector('.element__image').alt = (name);
-    card.querySelector('.element__image').src = (link);
-    card.querySelector('.element').id=(id);
-
+    cardElementImg.alt = (name);
+    cardElementImg.src = (link);
+    
     /*лайк*/
     card.querySelector('.element__button-like').addEventListener('click', function (evt){
     evt.target.classList.toggle('element__button-like_active');
@@ -138,13 +137,10 @@ function createCard(name, link, id){
     });
     
     /*открытие картинки на весь экран*/
-    card.querySelector('.element__image').addEventListener('click', function(evt){
-    const cardElementId = evt.target.parentElement.id;
-    const idAsNumber = Number(cardElementId);
-    const cardInfo = cards.find(item => item.id === idAsNumber);
-
-    popupTitle.textContent =  cardInfo.name;
-    popupPhoto.src = cardInfo.link;
+    cardElementImg.addEventListener('click', function(evt){
+    
+    imagePopupTitle.textContent = name;
+    photoElementImagePopup.src = link;
 
     togglePopup(popupImage);
     body.addEventListener('keydown', closeEscPopup(popupImage));
@@ -161,59 +157,42 @@ function createCard(name, link, id){
     
 /*добавление 6 карточек на страницу*/
 cards.forEach(function (item){
-   addCard(createCard(item.name ,item.link, item.id));
+   addCard(createCard(item.name ,item.link));
 });
 
 /*добавление карточки пользователем*/
-function editProfileFormSubmitHandler(evt){
+function addCardFormSubmitHandler(evt){
     evt.preventDefault();
 
     const name = inputAddName.value;
     const link = inputAddLink.value;
-    const id = cards.length + 1;
     
-    cards.push({id: id, name: name, link: link})
+    cards.push({name: name, link: link})
 
-    addCard(createCard(name,link,id));
+    addCard(createCard(name,link));
     togglePopup(popupAdd);
 }
-formAdd.addEventListener('submit', editProfileFormSubmitHandler);
 
+/*открытие окна редактирования*/
+editProfileButton.addEventListener('click', openEditProfilePopup);
+
+/*открытие окна добавления картинки*/
+createCardButton.addEventListener('click', openCreateCardPopup);
+
+/*редактирование профиля*/
+formElement.addEventListener('submit', editProfileFormSubmitHandler);
 /*закрытие окна редактирования*/
 buttonClose.addEventListener('click', function(){
     togglePopup(popupEdit);
-    resetError(popupEdit);
-    
 });
 /*закрытие окна добавления картинки*/
 buttonCloseAdd.addEventListener('click', function(){
     togglePopup(popupAdd);
-    resetError(popupAdd);
 });
 /*закрытие изображения*/
 buttonCloseImage.addEventListener('click', function(){
     togglePopup(popupImage);
 });
 
-function disableButton(form) {
-  const popupButton = form.querySelector('.popup__button');
-  popupButton.classList.remove('popup__button_disabled');
-}
-
-function resetError(opClose){
-    const spanList = Array.from(document.querySelectorAll('.popup__error'));
-    const inputList = Array.from(document.querySelectorAll('.popup__input'));
-    
-    if (opClose.classList.contains('popup_opened')){
-    }    
-    
-    else{
-         spanList.forEach((popupSpan) => {
-            popupSpan.classList.remove('popup__error_visible');
-        });
-    
-        inputList.forEach((popupInput) => {
-            popupInput.classList.remove('popup__input_type_error');
-        });
-    }
-}
+/*добавление карточки пользователем*/
+formAdd.addEventListener('submit', addCardFormSubmitHandler);

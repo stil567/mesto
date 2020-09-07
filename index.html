@@ -51,19 +51,19 @@
     
         <div class="popup__container">  
            
-            <form class="popup__form" action="url" name="popup-profile" novalidate>
+            <form class="popup__form" action="url" name="popup-profile"  novalidate>
 
                <h2 class="popup__title">Редактировать профиль</h2>
                
                 <fieldset class="popup__fields">
 
                     <label class="popup__label" for="title">
-                        <input class="popup__input popup__input_name" type="text" name="title" id="title" minlength="2" maxlength="40" required>
+                        <input class="popup__input popup__input_name" type="text" name="title" id="title" minlength="2" maxlength="40" placeholder="Имя" required>
                         <span id="title-error" class="popup__error"></span>
                     </label>
 
                     <label class="popup__label" for="subtitle">
-                        <input class="popup__input popup__input_job" type="text" name="subtitle" id="subtitle" minlength="2" maxlength="200" required>
+                        <input class="popup__input popup__input_job" type="text" name="subtitle" id="subtitle" minlength="2" maxlength="200" placeholder="О себе" required>
                         <span id="subtitle-error" class="popup__error"></span>
                     </label>
 
@@ -84,7 +84,7 @@
         
         <div class="popup__container popup__container_add">
             
-            <form class="popup__form" action="url" name="popup-element" novalidate>
+            <form class="popup__form" action="url" name="popup-element" id="form" novalidate>
 
                <h2 class="popup__title">Новое место</h2>
                
@@ -107,7 +107,6 @@
                 </fieldset>
 
             </form>
-
             
         </div>
         
@@ -137,6 +136,7 @@
    
     <script src="js/script.js" ></script>
     <script src="js/validate.js"></script>
+
 
 </body>
 </html>
