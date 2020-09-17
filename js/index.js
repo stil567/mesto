@@ -1,6 +1,6 @@
-import {cards} from './card.js';
-import Card from './card.js';
-import {popupImage} from './card.js';
+import {cards, popupImage} from './Card.js';
+import Card from './Card.js';
+import FormValidator from './FormValidator.js';
 
 const body = document.querySelector('.root');
 const editProfileButton = document.querySelector('.profile__edit-button');
@@ -8,7 +8,6 @@ const createCardButton = document.querySelector('.profile__add-button');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
 const popup = document.querySelector('.popup');
-const formAll = Array.from(document.querySelectorAll('.popup'));
 const popupEdit = document.querySelector('.popup-edit');
 const popupAdd = document.querySelector('.popup-add');
 const popupButton = document.querySelector('.popup__button');
@@ -21,6 +20,17 @@ const formAdd = document.querySelector('.popup__container_add');
 const popupForm = document.querySelector('.popup__form');
 const elementContent = document.querySelector('.elements__content');
 const form = document.querySelector('#form');
+
+const validateObject = {
+  formSelector:'.popup__form',
+  inputSelector:'.popup__input',
+  submitButtonSelector:'.popup__button',
+  inactiveButtonClass:'popup__button_disabled',
+  inputErrorClass:'popup__input_type_error',
+  errorClass:'popup__error_visible',
+  popupError :'.popup__error',
+  formButton:'.profile__button',
+};
 
 /*функция открытия и закрытия*/
 function togglePopup(popup){
@@ -49,7 +59,7 @@ function openEditProfilePopup(){
     togglePopup(popupEdit);
     body.addEventListener('keydown', closeEscPopup(popupEdit));
     closeOverlayPopup(popupEdit);
-    resetError(popupEdit, validateObject);
+    //resetError(popupEdit, validateObject);
 }
 
 /*открытие окна добавления картинки*/
@@ -58,7 +68,7 @@ function openCreateCardPopup(){
     togglePopup(popupAdd);
     body.addEventListener('keydown', closeEscPopup(popupAdd));
     closeOverlayPopup(popupAdd);
-    resetError(popupAdd, validateObject);
+    //resetError(popupAdd, validateObject);
 }
 
 /*редактирование профиля*/
@@ -116,7 +126,6 @@ cards.forEach((item) => {
     const card = new Card(item, '#element-template');
     const cardElement = card.generateCard();
   
-    // Добавляем в DOM
     document.querySelector('.elements__content').prepend(cardElement);
 
     togglePopup(popupImage);
@@ -125,3 +134,11 @@ cards.forEach((item) => {
   
 });
 
+/*валидация форм*/
+const editPopupForm = popupEdit.querySelector(validateObject.formSelector);
+const editFormValidator = new FormValidator(validateObject, editPopupForm);
+editFormValidator.enableValidation();
+
+const addPopupForm = popupAdd.querySelector(validateObject.formSelector);
+const addFormValidator = new FormValidator(validateObject, addPopupForm);
+addFormValidator.enableValidation();

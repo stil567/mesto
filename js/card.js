@@ -24,7 +24,6 @@
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
-export{cards}
 
 const imagePopupTitle = document.querySelector('.popup-img__title');
 const photoElementImagePopup = document.querySelector('.popup-img__photo');
@@ -67,13 +66,14 @@ export default class Card{
             evt.target.classList.toggle('element__button-like_active');
         });
     }
+
     /*удаление карточки*/
     _setEventListenersTrash(){
         this._element.querySelector('.element__button-trash').addEventListener('click', function (evt){
             evt.target.closest('.element').remove();
         });
     }
-
+    /*открытие картинки*/
     _openedCardImgPopup(){
         imagePopupTitle.textContent = this._name;
         photoElementImagePopup.src = this._link;
@@ -82,6 +82,7 @@ export default class Card{
         popupImage.classList.add('popup_opened');
     }
 
+    /*закрытие картинки*/
     _closeCardImgPopup(){
         popupImage.classList.remove('popup_opened');
       }
@@ -99,4 +100,4 @@ export default class Card{
 
 }
 
-export{popupImage};
+export{cards, popupImage};
